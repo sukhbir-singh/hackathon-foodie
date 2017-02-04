@@ -1,6 +1,7 @@
 package com.hackathon.csec.foodie.Utilities;
 
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
+import com.hackathon.csec.foodie.AndroidModels.SearchModel;
 import com.hackathon.csec.foodie.LoginFragment;
 
 
@@ -24,6 +25,9 @@ Call<Restaurant_model> getRestaurants();
 @FormUrlEncoded
 Call<LoginFragment.UserSentResponse> sendUserData(@Field("name") String name, @Field("picUrl") String picUrl, @Field("email") String email);
 
+
+@GET("/search/keyword/{keyword}")
+Call<SearchModel> search(@Path("keyword") String keyword);
 }
 
 

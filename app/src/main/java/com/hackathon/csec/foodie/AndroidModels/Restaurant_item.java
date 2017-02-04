@@ -18,6 +18,8 @@ public class Restaurant_item {
     public int distance;
     @SerializedName("id")
     public int id;
+    @SerializedName("budget")
+    public int budget;
 
     public String getName() {
         return name;
@@ -57,6 +59,14 @@ public class Restaurant_item {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
     }
 }
 
