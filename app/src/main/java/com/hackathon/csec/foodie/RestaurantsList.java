@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -32,7 +33,11 @@ public class RestaurantsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants_list);
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        toolbar.setTitle("Restaurants");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager manager=new LinearLayoutManager(RestaurantsList.this);

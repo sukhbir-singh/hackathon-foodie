@@ -28,27 +28,32 @@
         android:src="@drawable/splash"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
         <android.support.v7.widget.CardView
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_centerInParent="true"
             android:background="#bcbbc1"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:id="@+id/cardSearchView">
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
-                    android:padding="5dp"
+                    android:paddingLeft="10dp"
                     android:src="@drawable/magnifyingglass"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
                 <TextView
-                    android:gravity="bottom"
+                    android:gravity="center"
                     android:layout_weight="3"
                     android:textAppearance="@android:style/TextAppearance.Medium"
                     android:layout_width="match_parent"
