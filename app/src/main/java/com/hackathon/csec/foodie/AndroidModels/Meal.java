@@ -16,7 +16,7 @@ public class Meal {
     @SerializedName("price")
     private int price;
     @SerializedName("veg")
-    private int veg;
+    private boolean veg;
     @SerializedName("rating")
     private int rating;
 
@@ -52,11 +52,11 @@ public class Meal {
         this.price = price;
     }
 
-    public int getVeg() {
+    public boolean isVeg() {
         return veg;
     }
 
-    public void setVeg(int veg) {
+    public void setVeg(boolean veg) {
         this.veg = veg;
     }
 

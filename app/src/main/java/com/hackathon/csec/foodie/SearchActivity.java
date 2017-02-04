@@ -9,12 +9,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.hackathon.csec.foodie.Adapter.SearchAdapter;
 import com.hackathon.csec.foodie.AndroidModels.SearchModel;
 import com.hackathon.csec.foodie.Utilities.Utils;
 
@@ -25,6 +28,8 @@ import retrofit2.Response;
 public class SearchActivity extends AppCompatActivity {
 private SearchView searchView;
 private RecyclerView recyclerView;
+private SearchAdapter adapter;
+private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,7 @@ private RecyclerView recyclerView;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         searchView= (SearchView) findViewById(R.id.searchView);
+        progressBar= (ProgressBar) findViewById(R.id.progress);
         searchView.setIconified(false);
         searchView.setQueryHint("Search");
         recyclerView= (RecyclerView) findViewById(R.id.list);
@@ -42,6 +48,7 @@ private RecyclerView recyclerView;
             @Override
             public boolean onQueryTextSubmit(String query) {
                 search(query);
+                progressBar.setVisibility(View.VISIBLE);
                 return false;
             }
 
@@ -50,7 +57,9 @@ private RecyclerView recyclerView;
                 return false;
             }
         });
-
+          recyclerView.setLayoutManager(new LinearLayoutManager(this));
+          adapter=new SearchAdapter(this);
+          recyclerView.setAdapter(adapter);
 
     }
 
@@ -61,10 +70,12 @@ private RecyclerView recyclerView;
             public void onResponse(Call<SearchModel> call, Response<SearchModel> response) {
                 SearchModel searchModel=response.body();
                 if(searchModel!=null&&response.isSuccess()){
-
+                  adapter.setList(searchModel.getMealItems());
+                    progressBar.setVisibility(View.GONE);
                 }
                 else{
                     Toast.makeText(SearchActivity.this,"Please Check Internet Connection",Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                 }
             }
 
@@ -72,6 +83,7 @@ private RecyclerView recyclerView;
             public void onFailure(Call<SearchModel> call, Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(SearchActivity.this,"Please Check Internet Connection",Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

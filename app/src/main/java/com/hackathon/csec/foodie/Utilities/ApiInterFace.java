@@ -27,7 +27,7 @@ Call<Restaurant_model> getRestaurants();
 Call<LoginFragment.UserSentResponse> sendUserData(@Field("name") String name, @Field("picUrl") String picUrl, @Field("email") String email);
 
 
-@GET("/search/keyword/{keyword}")
+@GET("/search/{keyword}")
 Call<SearchModel> search(@Path("keyword") String keyword);
 
     @GET("/profile/{id}")
