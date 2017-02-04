@@ -2,6 +2,7 @@ package com.hackathon.csec.foodie.Utilities;
 
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
 import com.hackathon.csec.foodie.AndroidModels.SearchModel;
+import com.hackathon.csec.foodie.AndroidModels.UserProfile_model;
 import com.hackathon.csec.foodie.LoginFragment;
 
 
@@ -28,6 +29,10 @@ Call<LoginFragment.UserSentResponse> sendUserData(@Field("name") String name, @F
 
 @GET("/search/keyword/{keyword}")
 Call<SearchModel> search(@Path("keyword") String keyword);
+
+    @GET("/profile/{id}")
+    Call<UserProfile_model> getUserInfo(@Path("id") String id);
+
 }
 
 
