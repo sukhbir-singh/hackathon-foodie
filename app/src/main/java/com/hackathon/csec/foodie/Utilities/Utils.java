@@ -1,14 +1,8 @@
 package com.hackathon.csec.foodie.Utilities;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Cache;
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,7 +15,7 @@ public class Utils {
 
     // Created A Static Retrofit Service Method For Getting reference to the retrofit service method
 
-    public static APIINTERFACE getRetrofitService() {
+    public static ApiInterFace getRetrofitService() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
         OkHttpClient.Builder oBuilder = new OkHttpClient.Builder();
@@ -34,7 +28,7 @@ public class Utils {
                 client(oBuilder.build()).
                 build();
 
-        APIINTERFACE service = retrofit.create(APIINTERFACE.class);
+        ApiInterFace service = retrofit.create(ApiInterFace.class);
         return service;
     }
 }

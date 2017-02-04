@@ -5,6 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ImageButton b1,b2,b3;
+    private CardView cardViewSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Foodie");
 
         recyclerView=(RecyclerView)findViewById(R.id.home_recycler);
+        cardViewSearch= (CardView) findViewById(R.id.cardSearchView);
+        cardViewSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SearchActivity.class));
+            }
+        });
         HomeRecyclerAdapter adapter=new HomeRecyclerAdapter(this,getList());
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -53,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Restaurants_list.class));
+                startActivity(new Intent(MainActivity.this, RestaurantsList.class));
             }
         });
 

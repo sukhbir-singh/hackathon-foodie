@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
 import com.hackathon.csec.foodie.AndroidModels.UserProfile_model;
-import com.hackathon.csec.foodie.Utilities.APIINTERFACE;
+import com.hackathon.csec.foodie.Utilities.ApiInterFace;
 import com.hackathon.csec.foodie.Utilities.Utils;
 
 import retrofit2.Call;
@@ -38,22 +38,22 @@ public class UserProfile extends AppCompatActivity {
 
     public void retrofit(){
 
-        APIINTERFACE apiservice= Utils.getRetrofitService();
-        Call<UserProfile_model> call=apiservice.getUserInfo("ddgd");
+
+        ApiInterFace apiservice= Utils.getRetrofitService();
+        Call<UserProfile_model> call=apiservice.getUserInfo("   fgfjhfvhjfvhjgfvh");
+
 
         call.enqueue(new Callback<UserProfile_model>() {
             @Override
             public void onResponse(Call<UserProfile_model> call, Response<UserProfile_model> response) {
-                //bar.setVisibility(View.GONE);
 
-                int status=response.code();
-
-
+               // bar.setVisibility(View.GONE);
 
             }
 
             @Override
             public void onFailure(Call<UserProfile_model> call, Throwable t) {
+
                 //bar.setVisibility(View.GONE);
                 Toast.makeText(UserProfile.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
             }

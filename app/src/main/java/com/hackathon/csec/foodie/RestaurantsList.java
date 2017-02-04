@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.hackathon.csec.foodie.Adapter.RestaurantAdapter;
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_item;
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
-import com.hackathon.csec.foodie.Utilities.APIINTERFACE;
+import com.hackathon.csec.foodie.Utilities.ApiInterFace;
 import com.hackathon.csec.foodie.Utilities.Utils;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Restaurants_list extends AppCompatActivity {
+public class RestaurantsList extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ProgressBar bar;
@@ -35,9 +35,9 @@ public class Restaurants_list extends AppCompatActivity {
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
-        LinearLayoutManager manager=new LinearLayoutManager(Restaurants_list.this);
+        LinearLayoutManager manager=new LinearLayoutManager(RestaurantsList.this);
         recyclerView.setLayoutManager(manager);
-        adapter=new RestaurantAdapter(Restaurants_list.this);
+        adapter=new RestaurantAdapter(RestaurantsList.this);
         recyclerView.setAdapter(adapter);
         bar=(ProgressBar)findViewById(R.id.progress);
 
@@ -48,7 +48,7 @@ public class Restaurants_list extends AppCompatActivity {
 
     public void retrofit(){
 
-        APIINTERFACE apiservice= Utils.getRetrofitService();
+        ApiInterFace apiservice= Utils.getRetrofitService();
         Call<Restaurant_model> call=apiservice.getRestaurants();
 
         call.enqueue(new Callback<Restaurant_model>() {
@@ -66,14 +66,14 @@ public class Restaurants_list extends AppCompatActivity {
                     adapter.refresh(list);
 
                 }else{
-                    Toast.makeText(Restaurants_list.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RestaurantsList.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Restaurant_model> call, Throwable t) {
                 bar.setVisibility(View.GONE);
-                Toast.makeText(Restaurants_list.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(RestaurantsList.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
             }
         });
     }
