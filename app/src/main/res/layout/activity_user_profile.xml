@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_profile"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hackathon.csec.foodie.UserProfile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:background="#5c73bf"
+            android:id="@+id/imageUser"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tarun Mahawar"
+            android:textSize="25dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/nameUser"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="Phone No."
+            android:layout_below="@id/nameUser"
+            android:id="@+id/phone"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9882301216"
+            android:paddingTop="8dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:id="@+id/phoneUser"
+            android:layout_below="@id/phone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:paddingTop="10dp"
+            android:text="Email"
+            android:layout_below="@+id/phoneUser"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tarunmahawar25@gmail.com"
+            android:id="@+id/emailUser"
+            android:paddingTop="8dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_below="@+id/email"
+            />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
