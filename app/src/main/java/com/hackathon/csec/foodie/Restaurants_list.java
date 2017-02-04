@@ -41,7 +41,6 @@ public class Restaurants_list extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         bar=(ProgressBar)findViewById(R.id.progress);
 
-
         bar.setVisibility(View.VISIBLE);
         retrofit();
 
@@ -69,7 +68,6 @@ public class Restaurants_list extends AppCompatActivity {
                 }else{
                     Toast.makeText(Restaurants_list.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override

@@ -77,9 +77,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        public final TextView nameRes,distanceRes;
-        public final RatingBar ratingRes;
-        ImageView imageRes;
+        private final TextView nameRes,distanceRes;
+        private final RatingBar ratingRes;
+        private ImageView imageRes;
 
         public ViewHolder(View v){
             super(v);

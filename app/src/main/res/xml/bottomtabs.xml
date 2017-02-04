@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/restaurant_tab"
+        icon="@drawable/restaurant"
+        title="Restaurants"
+        barColorWhenSelected="#38edcc" />
+
+    <tab
+        id="@+id/cart_tab"
+        icon="@drawable/restaurant"
+        title="Cart"
+        barColorWhenSelected="#fc8581" />
+
+    <tab
+        id="@+id/account_tab"
+        icon="@drawable/restaurant"
+        title="Account"
+        barColorWhenSelected="#7cef76" />
+
+</tabs>
