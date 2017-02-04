@@ -15,9 +15,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.TransNav"></activity>
-        <activity android:name=".SingleRestaurant">
-
-        </activity>
+        <activity android:name=".SingleRestaurant"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -36,7 +34,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Restaurants_list" />
+        <activity android:name=".RestaurantsList" />
         <activity android:name=".UserProfile"></activity>
 
         <activity
@@ -51,6 +49,12 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search"
+            android:theme="@style/AppTheme"></activity>
+
     </application>
 
 </manifest>

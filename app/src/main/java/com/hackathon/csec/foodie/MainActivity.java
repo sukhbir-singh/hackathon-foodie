@@ -5,6 +5,9 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+
+import android.support.v7.widget.CardView;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private CardView cardViewSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Foodie");
 
         recyclerView=(RecyclerView)findViewById(R.id.home_recycler);
+        cardViewSearch= (CardView) findViewById(R.id.cardSearchView);
+        cardViewSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SearchActivity.class));
+            }
+        });
         HomeRecyclerAdapter adapter=new HomeRecyclerAdapter(this,getList());
 
         LinearLayoutManager llm = new LinearLayoutManager(this);

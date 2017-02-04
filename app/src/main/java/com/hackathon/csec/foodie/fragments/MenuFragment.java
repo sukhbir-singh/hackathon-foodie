@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import com.hackathon.csec.foodie.Adapter.MenusAdapter;
 import com.hackathon.csec.foodie.Adapter.RestaurantAdapter;
 import com.hackathon.csec.foodie.R;
-import com.hackathon.csec.foodie.Restaurants_list;
+import com.hackathon.csec.foodie.RestaurantsList;
 
 /**
  * Created by root on 4/2/17.
