@@ -27,22 +27,24 @@ public class MenuFragment3 extends Fragment {
         this.context = context;
     }
 
-    public MenuFragment3(){
-    }
+    public MenuFragment3(){}
 
-   public static MenuFragment3 getInstance(Context context){
+    public static MenuFragment3 getInstance(Context context){
        MenuFragment3 fragment=new MenuFragment3();
 
        fragment.setContext(context);
 
        return fragment;
-   }
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.review_fragment,container,false);
+        View view=inflater.inflate(R.layout.review_fragment,container,false);
+
+
+        return view;
 
     }
 }

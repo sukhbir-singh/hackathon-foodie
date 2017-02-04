@@ -39,14 +39,13 @@ public class UserProfile extends AppCompatActivity {
     public void retrofit(){
 
         APIINTERFACE apiservice= Utils.getRetrofitService();
-        Call<UserProfile_model> call=apiservice.getUserInfo();
+        Call<UserProfile_model> call=apiservice.getUserInfo("ddgd");
 
         call.enqueue(new Callback<UserProfile_model>() {
             @Override
             public void onResponse(Call<UserProfile_model> call, Response<UserProfile_model> response) {
-                bar.setVisibility(View.GONE);
+                //bar.setVisibility(View.GONE);
 
-                Restaurant_model model=response.body();
                 int status=response.code();
 
 
@@ -55,7 +54,7 @@ public class UserProfile extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserProfile_model> call, Throwable t) {
-                bar.setVisibility(View.GONE);
+                //bar.setVisibility(View.GONE);
                 Toast.makeText(UserProfile.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
             }
         });
