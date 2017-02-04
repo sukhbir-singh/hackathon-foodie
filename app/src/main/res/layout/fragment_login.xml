@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
+    tools:context="com.hackathon.csec.foodie.LoginFragment">
+
+<ImageView
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:id="@+id/skipImage"
+    android:src="@drawable/cancel"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentRight="true"
+    />
+
+    <com.facebook.login.widget.LoginButton
+        android:layout_marginLeft="50dp"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginButton"/>
+</RelativeLayout>

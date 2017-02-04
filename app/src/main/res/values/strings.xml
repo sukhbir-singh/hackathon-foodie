@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Foodie</string>
+    <string name="facebook_app_id">371185896593172</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="fb_login_protocol_scheme">371185896593172</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
