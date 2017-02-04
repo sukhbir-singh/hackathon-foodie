@@ -26,7 +26,7 @@ public class MenuItem {
     @SerializedName("cuisine")
     private String cuisine;
     @SerializedName("veg")
-    private int veg;
+    private boolean veg;
 
     public String getId() {
         return id;
@@ -92,11 +92,11 @@ public class MenuItem {
         this.cuisine = cuisine;
     }
 
-    public int getVeg() {
+    public boolean isVeg() {
         return veg;
     }
 
-    public void setVeg(int veg) {
+    public void setVeg(boolean veg) {
         this.veg = veg;
     }
 }

@@ -17,7 +17,7 @@ public class CartItem {
     private double rating;
     private int price;
     private String cuisine;
-    private int veg;
+    private boolean veg;
     private int qty;
 
     public int getQty() {
@@ -92,11 +92,11 @@ public class CartItem {
         this.cuisine = cuisine;
     }
 
-    public int getVeg() {
+    public boolean isVeg() {
         return veg;
     }
 
-    public void setVeg(int veg) {
+    public void setVeg(boolean veg) {
         this.veg = veg;
     }
 }

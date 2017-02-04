@@ -5,6 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -12,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.ImageButton;
 
 import com.hackathon.csec.foodie.Adapter.HomeRecyclerAdapter;
 import com.hackathon.csec.foodie.AndroidModels.TrendingItems;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private ImageButton b1,b2,b3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,24 +46,28 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
 
-        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        b1=(ImageButton)findViewById(R.id.b1);
+        b2=(ImageButton)findViewById(R.id.b2);
+        b3=(ImageButton)findViewById(R.id.b3);
 
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+        b1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabSelected(@IdRes int tabId) {
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Restaurants_list.class));
+            }
+        });
 
-                Log.v("weird","execution");
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              //  startActivity(new Intent(MainActivity.this, Restaurants_list.class));
+            }
+        });
 
-                if (tabId == R.id.restaurant_tab) {
-                    //startActivity(new Intent(MainActivity.this,Restaurants_list.class));
-
-                }else if(tabId==R.id.cart_tab){
-
-
-                }else if(tabId==R.id.account_tab){
-
-
-                }
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // startActivity(new Intent(MainActivity.this, Restaurants_list.class));
             }
         });
 

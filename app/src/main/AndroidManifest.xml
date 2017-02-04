@@ -13,8 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.TransNav"></activity>
+            android:name=".MainActivity"></activity>
         <activity android:name=".SingleRestaurant">
 
         </activity>
