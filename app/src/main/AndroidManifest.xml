@@ -11,6 +11,9 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".SingleRestaurant">
+            
+        </activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
