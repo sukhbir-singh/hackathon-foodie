@@ -12,11 +12,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:title="Foodie"
+        android:layout_marginTop="22dp"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
      />
-
 
     <RelativeLayout
         android:background="#3ba9f1b5"
@@ -35,11 +35,8 @@
             android:background="#fff"
             android:layout_centerInParent="true"
             android:layout_height="40dp">
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            </android.support.v7.widget.SearchView>
+
+        </android.support.v7.widget.SearchView>
 
     </RelativeLayout>
 
@@ -53,6 +50,8 @@
     <com.roughike.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
+        app:bb_activeTabColor="#fff"
+        app:bb_inActiveTabColor="#fff"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/bottomtabs"
