@@ -19,12 +19,14 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginRight="2dp"
-            android:background="@android:drawable/btn_star"
+            android:scaleType="centerCrop"
+            android:background="@android:color/background_light"
             />
 
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+
          android:text="Hotel Hira Heights"
          android:layout_alignParentLeft="true"
          android:id="@+id/nameRes"
@@ -33,10 +35,11 @@
          />
 
       <android.support.v7.widget.AppCompatRatingBar
-          android:layout_width="240dp"
-          android:layout_height="40dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:layout_below="@+id/nameRes"
           android:layout_alignParentLeft="true"
+          style="?android:attr/ratingBarStyleIndicator"
           android:rating="5"
           android:numStars="5"
           android:stepSize="0.5"

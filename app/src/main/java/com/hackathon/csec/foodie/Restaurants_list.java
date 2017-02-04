@@ -32,7 +32,7 @@ public class Restaurants_list extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants_list);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager manager=new LinearLayoutManager(Restaurants_list.this);
