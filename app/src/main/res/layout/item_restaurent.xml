@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#bcbbc1"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:id="@+id/imageRes"
+            android:layout_alignParentRight="true"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginRight="2dp"
+            android:background="@android:drawable/btn_star"
+            />
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Hotel Hira Heights"
+         android:layout_alignParentLeft="true"
+         android:id="@+id/nameRes"
+         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+         android:textColor="@android:color/black"
+         />
+
+      <android.support.v7.widget.AppCompatRatingBar
+          android:layout_width="wrap_content"
+          android:layout_height="40dp"
+          android:layout_below="@+id/nameRes"
+          android:layout_alignParentLeft="true"
+          android:rating="5"
+          android:numStars="5"
+          android:stepSize="0.2"
+          android:layout_marginRight="2dp"
+          android:id="@+id/ratingRes"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingRes"
+            android:text="10 KM away"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_marginTop="5dp"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
