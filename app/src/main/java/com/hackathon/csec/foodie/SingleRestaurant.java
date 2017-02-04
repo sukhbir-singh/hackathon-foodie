@@ -1,0 +1,105 @@
+package com.hackathon.csec.foodie;
+
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.hackathon.csec.foodie.fragments.MenuFragment;
+import com.hackathon.csec.foodie.fragments.MenuFragment2;
+import com.hackathon.csec.foodie.fragments.MenuFragment3;
+
+public class SingleRestaurant extends AppCompatActivity {
+
+    private ImageView img;
+    private ViewPager pager;
+    private TabLayout tab;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_single_restaurant);
+
+        tab=(TabLayout)findViewById(R.id.tabs);
+        pager=(ViewPager)findViewById(R.id.viewpager);
+        img=(ImageView)findViewById(R.id.rest_image);
+
+        MyPagerAdapter adapter=new MyPagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(adapter);
+
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.v("tab","selected");
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        tab.setupWithViewPager(pager);
+
+
+    }
+
+    private class MyPagerAdapter extends FragmentStatePagerAdapter{
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            String str="Tab";
+            switch (position){
+                case 0: str="Menu";
+                    break;
+                case 1: str="About";
+                    break;
+                case 2: str="Review";
+                    break;
+            }
+
+            return str;
+        }
+
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+
+            Fragment fragment=null;
+
+            switch (position){
+                case 0: fragment=MenuFragment.getInstance(SingleRestaurant.this);
+                    break;
+                case 1: fragment=MenuFragment2.getInstance(SingleRestaurant.this);
+                    break;
+                case 2: fragment= MenuFragment3.getInstance(SingleRestaurant.this);
+                    break;
+                default:fragment=MenuFragment.getInstance(SingleRestaurant.this);
+            }
+
+            return fragment;
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+    }
+
+}

@@ -13,8 +13,10 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.target.Target;
 
 public class SplashActivity extends AppCompatActivity {
-private ImageView image_splash;
-private static  final int TIME_SPLASH=1500;
+
+    private ImageView image_splash;
+    private static  final int TIME_SPLASH=1500;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
