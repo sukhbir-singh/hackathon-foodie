@@ -7,9 +7,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Jatin on 9/13/2016.
- */
 public class Utils {
 
     public static boolean checkData(String string) {

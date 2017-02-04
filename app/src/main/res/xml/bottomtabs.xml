@@ -8,13 +8,13 @@
 
     <tab
         id="@+id/cart_tab"
-        icon="@drawable/restaurant"
+        icon="@drawable/cart"
         title="Cart"
         barColorWhenSelected="#fc8581" />
 
     <tab
         id="@+id/account_tab"
-        icon="@drawable/restaurant"
+        icon="@drawable/avatar"
         title="Account"
         barColorWhenSelected="#7cef76" />
 
