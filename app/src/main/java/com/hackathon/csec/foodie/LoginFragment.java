@@ -3,11 +3,13 @@ package com.hackathon.csec.foodie;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -17,13 +19,20 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
+import com.facebook.internal.Utility;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.gson.annotations.SerializedName;
+import com.hackathon.csec.foodie.Utilities.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -34,11 +43,18 @@ public class LoginFragment extends Fragment {
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private ArrayList<String> permission;
+    private ProgressBar progressBar;
+    private SharedPref sharedPref;
 
     public LoginFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sharedPref=new SharedPref(getActivity());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +62,7 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_login, container, false);
         loginButton= (LoginButton) v.findViewById(R.id.loginButton);
+        progressBar= (ProgressBar) v.findViewById(R.id.progress);
         loginButton.setFragment(this);
         permission=new ArrayList<>();
         permission.add("email");
@@ -83,6 +100,7 @@ public class LoginFragment extends Fragment {
                             }
                         }
                         saveUserData(name,email,picUrl);
+                        progressBar.setVisibility(View.VISIBLE);
 
                     }
                 });
@@ -95,6 +113,7 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onCancel() {
+                   sharedPref.setLoginSkipStatus(true);
                    getActivity().startActivity(new Intent(getActivity(),MainActivity.class));
                    getActivity().finish();
             }
@@ -116,5 +135,57 @@ public class LoginFragment extends Fragment {
 
     private void saveUserData(String name,String email,String picUrl){
 
+        Call<LoginFragment.UserSentResponse> userSentResponseCall= Utils.getRetrofitService().sendUserData(name,email,picUrl);
+        userSentResponseCall.enqueue(new Callback<UserSentResponse>() {
+            @Override
+            public void onResponse(Call<UserSentResponse> call, Response<UserSentResponse> response) {
+                UserSentResponse r=response.body();
+                if(r!=null&&response.isSuccess()){
+
+                    sharedPref.setLoginStatus(true);
+                    sharedPref.setUserKey(r.userId);
+                    sharedPref.setLoginSkipStatus(true);
+                    progressBar.setVisibility(View.GONE);
+                    getActivity().startActivity(new Intent(getActivity(),MainActivity.class));
+                }
+                else{
+                    Toast.makeText(getActivity(),"Check Internet connection",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserSentResponse> call, Throwable t) {
+                Toast.makeText(getActivity(),"Check Internet connection",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public  class  UserSentResponse{
+        @SerializedName("message")
+        private String message;
+
+        @SerializedName("userId")
+        private String userId;
+
+        public UserSentResponse(String message, String userId) {
+            this.message = message;
+            this.userId = userId;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
     }
 }

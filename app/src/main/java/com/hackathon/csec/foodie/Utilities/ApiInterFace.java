@@ -1,6 +1,7 @@
 package com.hackathon.csec.foodie.Utilities;
 
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
+import com.hackathon.csec.foodie.LoginFragment;
 
 
 import retrofit2.Call;
@@ -12,20 +13,16 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 
-public interface APIINTERFACE {
+public interface ApiInterFace {
 
 
-//    @FormUrlEncoded
 
-//    Call<Dislike>dislike(@Field("id") String id, @Field("uId") String userId);
-//    @POST("newsfeed/like")
-//    @GET("quiz/leaderboard")
-//    Call<LeaderBoardModel> getLeaderBoard(@Query("from") String from);
 @GET("restaurants")
 Call<Restaurant_model> getRestaurants();
 
-//    @GET("events/special")
-//    Call<BattleDayModel> getSpecialEvents();
+@POST("/profile")
+@FormUrlEncoded
+Call<LoginFragment.UserSentResponse> sendUserData(@Field("name") String name, @Field("picUrl") String picUrl, @Field("email") String email);
 
 }
 

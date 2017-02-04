@@ -5,23 +5,29 @@
     android:background="@drawable/loginbackground"
     tools:context="com.hackathon.csec.foodie.LoginFragment">
 
-<ImageView
-    android:layout_width="32dp"
-    android:layout_height="32dp"
-    android:id="@+id/skipImage"
-    android:src="@drawable/cancel"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentRight="true"
-    />
+    <ImageView
+        android:id="@+id/skipImage"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/cancel" />
+
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <com.facebook.login.widget.LoginButton
-        android:layout_marginLeft="50dp"
-        android:textSize="15dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
+        android:id="@+id/loginButton"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/loginButton"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="50dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:textSize="15dp" />
 </RelativeLayout>
