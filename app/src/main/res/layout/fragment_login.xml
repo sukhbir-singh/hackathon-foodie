@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
+    android:background="@drawable/loginback"
     tools:context="com.hackathon.csec.foodie.LoginFragment">
 
     <ImageView
         android:id="@+id/skipImage"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/cancel" />
@@ -30,4 +30,25 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:textSize="15dp" />
+
+    <ImageView
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:id="@+id/imageView8"
+        android:src="@drawable/app_logo"
+        android:layout_marginTop="140dp"
+        android:layout_below="@+id/skipImage"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Welcome To foodie !!"
+        android:textColor="#f37c0202"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/imageView8"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
