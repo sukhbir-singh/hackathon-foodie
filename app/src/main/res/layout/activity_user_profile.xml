@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_user_profile"
@@ -8,12 +9,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_margin="10dp"
     tools:context="com.hackathon.csec.foodie.UserProfile">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:id="@+id/layout1"
+        android:padding="10dp"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="120dp"
@@ -56,6 +60,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/email"
             android:paddingTop="10dp"
+            android:layout_alignLeft="@+id/phoneUser"
             android:text="Email"
             android:layout_below="@+id/phoneUser"/>
 
@@ -68,6 +73,16 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:layout_below="@+id/email"
             />
+
     </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progress1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center_vertical"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true" />
 
 </android.support.v7.widget.CardView>
