@@ -143,6 +143,7 @@ public class LoginFragment extends Fragment {
                 UserSentResponse r=response.body();
                 if(r!=null&&response.isSuccess()){
 
+                    Log.v("ID", r.userId);
                     sharedPref.setLoginStatus(true);
                     sharedPref.setUserKey(r.userId);
                     sharedPref.setLoginSkipStatus(true);
