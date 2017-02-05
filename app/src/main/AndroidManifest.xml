@@ -22,6 +22,7 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,12 +51,19 @@
         <activity
             android:name=".SearchActivity"
             android:label="@string/title_activity_search"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".appintro"
+            android:label="@string/title_activity_appintro"
+            android:theme="@style/AppTheme"></activity>
+
         <activity android:name=".CartActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
     </application>
 
 </manifest>
