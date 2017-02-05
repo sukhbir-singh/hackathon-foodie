@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.hackathon.csec.foodie.Adapter.RestaurantAdapter;
 import com.hackathon.csec.foodie.AndroidModels.CartItem;
+import com.hackathon.csec.foodie.AndroidModels.Meal;
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
 import com.hackathon.csec.foodie.Utilities.ApiInterFace;
 import com.hackathon.csec.foodie.Utilities.Utils;
@@ -58,7 +59,7 @@ public class CartActivity extends AppCompatActivity {
 
     }
 
-    public void retrofit(ArrayList<String> items){
+    public void retrofit(ArrayList<Meal> items){
 
         if(items.size()==0){
             Toast.makeText(this,"No Items in cart !!!",Toast.LENGTH_SHORT).show();

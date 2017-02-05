@@ -1,5 +1,8 @@
 package com.hackathon.csec.foodie;
 
+import com.hackathon.csec.foodie.AndroidModels.Meal;
+import com.hackathon.csec.foodie.AndroidModels.MenuItem;
+
 import java.util.ArrayList;
 
 /**
@@ -9,10 +12,12 @@ import java.util.ArrayList;
 public class CartSingleton {
 
     private static CartSingleton obj;
-    private ArrayList<String> items;
+    private ArrayList<Meal> items;
+    //private ArrayList<String> names;
 
     private CartSingleton(){
         items=new ArrayList<>();
+        //names=new ArrayList<>();
     }
 
     public static CartSingleton getInstance(){
@@ -24,16 +29,17 @@ public class CartSingleton {
         return obj;
     }
 
-    public ArrayList<String> getItems(){
+    public ArrayList<Meal> getItems(){
         return items;
     }
 
-    public void addToCart(String item){
+    public void addToCart(Meal item){
         if(obj==null){
             obj=new CartSingleton();
         }
 
         obj.items.add(item);
+        //obj.names.add(item.getName());
 
     }
 

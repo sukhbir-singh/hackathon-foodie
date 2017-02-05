@@ -3,16 +3,19 @@ package com.hackathon.csec.foodie.Adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hackathon.csec.foodie.AndroidModels.Meal;
+import com.hackathon.csec.foodie.CartSingleton;
 import com.hackathon.csec.foodie.R;
 
 import java.util.ArrayList;
@@ -41,7 +44,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
     }
 
     @Override
-    public void onBindViewHolder(viewHolder holder, int position) {
+    public void onBindViewHolder(viewHolder holder, final int position) {
        Meal m= (Meal) list.get(position);
         holder.name.setText(m.getName());
         holder.price.setText(""+m.getPrice());
@@ -54,6 +57,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
            holder.isVeg.setBackgroundColor(Color.GREEN);
        }
 
+        holder.addtocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CartSingleton singleton=CartSingleton.getInstance();
+                singleton.addToCart(list.get(position));
+
+                Log.v("added","cart");
+            }
+        });
+
     }
 
     @Override
@@ -64,12 +77,15 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
     public static  class  viewHolder extends RecyclerView.ViewHolder{
         ImageView picMenu,isVeg;
         TextView name,price;
+        Button addtocart;
+
         public viewHolder(View itemView) {
             super(itemView);
             picMenu= (ImageView) itemView.findViewById(R.id.img);
             isVeg= (ImageView) itemView.findViewById(R.id.color);
             name= (TextView) itemView.findViewById(R.id.name);
             price= (TextView) itemView.findViewById(R.id.price);
+            addtocart=(Button)itemView.findViewById(R.id.addtocart);
         }
     }
 }
