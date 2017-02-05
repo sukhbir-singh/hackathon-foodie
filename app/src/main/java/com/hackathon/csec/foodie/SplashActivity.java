@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
         image_splash = (ImageView) findViewById(R.id.image_splash);
-        Target<GlideDrawable> into = Glide.with(SplashActivity.this).load(R.drawable.splash).into(image_splash);
+        Target<GlideDrawable> into = Glide.with(SplashActivity.this).load(R.drawable.app).into(image_splash);
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override
