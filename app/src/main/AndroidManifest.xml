@@ -11,10 +11,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity"></activity>
-
-        <activity android:name=".SingleRestaurant"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SingleRestaurant" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -24,7 +22,6 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,14 +29,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".RestaurantsList" >
+        <activity android:name=".RestaurantsList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".UserProfile"></activity>
-
+        <activity android:name=".UserProfile" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
@@ -52,12 +47,11 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SearchActivity"
             android:label="@string/title_activity_search"
-            android:theme="@style/AppTheme"></activity>
-
+            android:theme="@style/AppTheme" />
+        <activity android:name=".CartActivity"></activity>
     </application>
 
 </manifest>
