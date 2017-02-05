@@ -1,5 +1,6 @@
 package com.hackathon.csec.foodie.Utilities;
 
+import com.hackathon.csec.foodie.Adapter.RestaurantMealResponse;
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
 import com.hackathon.csec.foodie.AndroidModels.SearchModel;
 import com.hackathon.csec.foodie.AndroidModels.UserProfile_model;
@@ -33,6 +34,8 @@ Call<SearchModel> search(@Path("keyword") String keyword);
     @GET("/profile/{id}")
     Call<UserProfile_model> getUserInfo(@Path("id") String id);
 
+    @GET("/meal/{id}")
+    Call<RestaurantMealResponse> getRestaurantMeal(@Path("id") int id);
 }
 
 

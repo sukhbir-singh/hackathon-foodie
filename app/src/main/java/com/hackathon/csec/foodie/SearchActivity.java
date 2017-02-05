@@ -74,9 +74,12 @@ private ProgressBar progressBar;
                     progressBar.setVisibility(View.GONE);
                 }
                 else{
-                    Toast.makeText(SearchActivity.this,"Please Check Internet Connection",Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                }
+                    if(response.code()==500){
+                        Toast.makeText(SearchActivity.this,"Please Check Internet Connection",Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                    }
+                    }
+
             }
 
             @Override
