@@ -99,6 +99,7 @@ public class LoginFragment extends Fragment {
                                 e.printStackTrace();
                             }
                         }
+                        loginButton.setVisibility(View.GONE);
                         saveUserData(name,picUrl,email);
                         progressBar.setVisibility(View.VISIBLE);
 

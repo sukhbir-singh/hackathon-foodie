@@ -1,5 +1,6 @@
 package com.hackathon.csec.foodie;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import com.hackathon.csec.foodie.Adapter.RestaurantAdapter;
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_item;
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
 import com.hackathon.csec.foodie.Utilities.ApiInterFace;
+import com.hackathon.csec.foodie.Utilities.RecyclerItemClickListener;
 import com.hackathon.csec.foodie.Utilities.Utils;
 
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ import retrofit2.Response;
 
 public class RestaurantsList extends AppCompatActivity {
 
+    public static final String RESTAURANT_ID ="id" ;
     private RecyclerView recyclerView;
     private ProgressBar bar;
     private ArrayList<Restaurant_item> list=new ArrayList<>();
@@ -44,6 +47,14 @@ public class RestaurantsList extends AppCompatActivity {
         recyclerView.setLayoutManager(manager);
         adapter=new RestaurantAdapter(RestaurantsList.this);
         recyclerView.setAdapter(adapter);
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent i=new Intent(RestaurantsList.this,SingleRestaurant.class);
+                i.putExtra(RESTAURANT_ID,list.get(position).getId());
+                startActivity(i);
+            }
+        }));
         bar=(ProgressBar)findViewById(R.id.progress);
 
         bar.setVisibility(View.VISIBLE);
