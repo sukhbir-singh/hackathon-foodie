@@ -149,6 +149,8 @@ public class LoginFragment extends Fragment {
                     sharedPref.setLoginSkipStatus(true);
                     progressBar.setVisibility(View.GONE);
                     getActivity().startActivity(new Intent(getActivity(),MainActivity.class));
+                    getActivity().finish();
+
                 }
                 else{
                     Toast.makeText(getActivity(),"Check Internet connection",Toast.LENGTH_SHORT).show();
