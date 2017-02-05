@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:layout_margin="10dp"
+    android:padding="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 <ImageView
+    android:layout_margin="5dp"
     android:src="#7ff279"
     android:id="@+id/img"
     android:layout_width="match_parent"
@@ -34,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <android.support.v4.widget.CircleImageView
+            <ImageView
                 android:layout_margin="10dp"
                 android:background="#0f0"
                 android:layout_alignParentRight="true"
@@ -108,4 +114,5 @@
 
 </LinearLayout>
 
+    </FrameLayout>
 </android.support.v7.widget.CardView>

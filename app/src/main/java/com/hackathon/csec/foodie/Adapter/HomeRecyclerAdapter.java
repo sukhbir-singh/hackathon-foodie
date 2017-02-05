@@ -52,7 +52,7 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
             holder.title.setText(arrayList.get(position).getText());
             holder.restaurant.setText(arrayList.get(position).getRestaurant());
 
-            //Glide.with(context).load(arrayList.get(position).getUrl()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.img);
+            Glide.with(context).load(arrayList.get(position).getUrl()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.img);
 
         }
     }

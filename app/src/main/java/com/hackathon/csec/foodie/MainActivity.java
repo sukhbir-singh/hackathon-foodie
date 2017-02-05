@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("cart","open");
                 startActivity(new Intent(MainActivity.this, CartActivity.class));
             }
         });
@@ -85,7 +86,15 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<TrendingItems> getList(){
       ArrayList<TrendingItems> items=new ArrayList<>();
 
-        String[] urls={"","","","","","","",""};
+        String[] urls={"http://imgur.com/zH7VzFv.jpg",
+                "http://i.imgur.com/5AS3kAv.jpg",
+                "http://imgur.com/WOBN4rH.jpg",
+                "http://imgur.com/r48Lc6r.jpg",
+                "http://imgur.com/ui5Wdhp.jpg",
+                "http://imgur.com/NrRpn8b.jpg",
+                "http://imgur.com/GAOY5RD.jpg",
+                "http://i.imgur.com/4PVTWgY.jpg"};
+
         String[] titles={"Buy 1 Get 1 Free",
                 "50% OFF for First Time Customer",
                 "Flat 20% Off On Orders Above Rs.400",
