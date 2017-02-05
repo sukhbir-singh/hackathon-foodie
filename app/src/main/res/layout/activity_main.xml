@@ -12,7 +12,6 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:title="Foodie"
-        android:layout_marginTop="22dp"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -30,32 +29,91 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-        <android.support.v7.widget.SearchView
-            android:layout_width="300dp"
-            android:background="#fff"
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
             android:layout_centerInParent="true"
-            android:layout_height="40dp">
+            android:background="#bcbbc1"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardSearchView">
 
-        </android.support.v7.widget.SearchView>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:paddingLeft="10dp"
+                    android:src="@drawable/magnifyingglass"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="3"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:hint="Search Restaurants , Cuisine"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
+        android:padding="0dp"
         android:layout_weight="1"
-        android:id="@+id/home_recycler"
-        android:background="#faf8c9"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp">
 
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        app:bb_activeTabColor="#fff"
-        app:bb_inActiveTabColor="#fff"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        app:bb_tabXmlResource="@xml/bottomtabs"
-        app:bb_behavior="underNavbar" />
+        <android.support.v7.widget.RecyclerView
+            android:layout_weight="1"
+            android:id="@+id/home_recycler"
+            android:background="#faf8c9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
 
+        <LinearLayout
+            android:padding="7dp"
+            android:background="#77849c"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <ImageButton
+                android:background="#77849c"
+                android:scaleType="centerInside"
+                android:src="@drawable/cutlery"
+                android:id="@+id/b1"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:background="#77849c"
+                android:scaleType="centerInside"
+                android:src="@drawable/cart"
+                android:id="@+id/b2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <ImageButton
+                android:background="#77849c"
+                android:scaleType="fitCenter"
+                android:src="@drawable/avatar"
+                android:id="@+id/b3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
