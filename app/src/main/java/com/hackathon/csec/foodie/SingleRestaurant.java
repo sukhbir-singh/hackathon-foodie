@@ -63,7 +63,6 @@ public class SingleRestaurant extends AppCompatActivity {
 
         tab.setupWithViewPager(pager);
 
-
     }
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter{
