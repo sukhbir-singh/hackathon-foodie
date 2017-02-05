@@ -12,8 +12,6 @@ public class UserProfile_model {
 
     @SerializedName("name")
     String nameUser;
-    @SerializedName("phoneno")
-    String phoneUser;
     @SerializedName("email")
     String emailuser;
     @SerializedName("picUrl")
@@ -29,14 +27,6 @@ public class UserProfile_model {
 
     public void setNameUser(String nameUser) {
         this.nameUser = nameUser;
-    }
-
-    public String getPhoneUser() {
-        return phoneUser;
-    }
-
-    public void setPhoneUser(String phoneUser) {
-        this.phoneUser = phoneUser;
     }
 
     public String getEmailuser() {
