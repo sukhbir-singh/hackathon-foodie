@@ -1,5 +1,7 @@
 package com.hackathon.csec.foodie;
 
+import android.util.Log;
+
 import com.hackathon.csec.foodie.AndroidModels.Meal;
 import com.hackathon.csec.foodie.AndroidModels.MenuItem;
 
@@ -37,6 +39,19 @@ public class CartSingleton {
         if(obj==null){
             obj=new CartSingleton();
         }
+
+        int flag=0;
+
+        for(int i=0;i<items.size();i++){
+             if(items.get(i).getName()==item.getName()){
+                 flag=1;
+                 Log.v("Singleton obj","already in cart");
+
+                 return;
+             }
+        }
+
+        Log.v("Singleton obj","added to cart");
 
         obj.items.add(item);
         //obj.names.add(item.getName());

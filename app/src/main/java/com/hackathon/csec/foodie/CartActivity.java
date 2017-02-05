@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.hackathon.csec.foodie.Adapter.RestaurantAdapter;
+import com.hackathon.csec.foodie.Adapter.CartAdapter;
 import com.hackathon.csec.foodie.AndroidModels.CartItem;
 import com.hackathon.csec.foodie.AndroidModels.Meal;
 import com.hackathon.csec.foodie.AndroidModels.Restaurant_model;
@@ -27,7 +28,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProgressBar bar;
     private ArrayList<CartItem> list=new ArrayList<>();
-    private RestaurantAdapter adapter;
+    private CartAdapter adapter;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +41,16 @@ public class CartActivity extends AppCompatActivity {
         toolbar.setTitle("Cart");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Log.v("cart","activity");
+
         recyclerView=(RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager manager=new LinearLayoutManager(CartActivity.this);
         recyclerView.setLayoutManager(manager);
-        adapter=new RestaurantAdapter(CartActivity.this);
+        adapter=new CartAdapter(CartActivity.this);
         recyclerView.setAdapter(adapter);
         bar=(ProgressBar)findViewById(R.id.progress);
 
-        bar.setVisibility(View.VISIBLE);
+        bar.setVisibility(View.GONE);
 
         CartSingleton singleton=CartSingleton.getInstance();
         if(singleton.getItems()!=null){
@@ -68,7 +71,11 @@ public class CartActivity extends AppCompatActivity {
             return;
         }
 
-        ApiInterFace apiservice= Utils.getRetrofitService();
+        adapter.refresh(items);
+
+        return;
+
+        /*ApiInterFace apiservice= Utils.getRetrofitService();
         Call<Restaurant_model> call=apiservice.getRestaurants();
 
         call.enqueue(new Callback<Restaurant_model>() {
@@ -95,7 +102,7 @@ public class CartActivity extends AppCompatActivity {
                 bar.setVisibility(View.GONE);
                 Toast.makeText(CartActivity.this,"Some error occurred!!",Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
     
 }

@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("cart","open");
                 startActivity(new Intent(MainActivity.this, CartActivity.class));
             }
         });

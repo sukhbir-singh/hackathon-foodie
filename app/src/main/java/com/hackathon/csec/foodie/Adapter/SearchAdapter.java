@@ -26,6 +26,8 @@ import java.util.ArrayList;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder> {
     private ArrayList<Meal> list=new ArrayList<>();
+    private ArrayList<Boolean> visiblity=new ArrayList<>();
+
     private Context context;
 
     public SearchAdapter( Context context) {
@@ -34,6 +36,11 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
 
     public void setList(ArrayList<Meal> list) {
         this.list = list;
+
+        for(int i=0;i<list.size();i++){
+            visiblity.add(true);
+        }
+
         notifyDataSetChanged();
     }
 
@@ -44,7 +51,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
     }
 
     @Override
-    public void onBindViewHolder(viewHolder holder, final int position) {
+    public void onBindViewHolder(final viewHolder holder, final int position) {
        Meal m= (Meal) list.get(position);
         holder.name.setText(m.getName());
         holder.price.setText(""+m.getPrice());
@@ -57,6 +64,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
            holder.isVeg.setBackgroundColor(Color.GREEN);
        }
 
+        if(visiblity.get(position)==false){
+            holder.addtocart.setVisibility(View.GONE);
+        }else{
+            holder.addtocart.setVisibility(View.VISIBLE);
+        }
+
         holder.addtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +77,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
                 singleton.addToCart(list.get(position));
 
                 Log.v("added","cart");
+
+                holder.addtocart.setVisibility(View.GONE);
+                visiblity.set(position,false);
             }
         });
 
