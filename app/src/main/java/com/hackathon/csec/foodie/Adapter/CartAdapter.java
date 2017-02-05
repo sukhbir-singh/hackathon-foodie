@@ -1,6 +1,7 @@
 package com.hackathon.csec.foodie.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,14 +40,36 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         if(arrayList!=null){
             if(arrayList.get(position).getName()!=null){
                 holder.nameRes.setText(arrayList.get(position).getName());
 
-                //change distance to km amd m
-                String distance = "";
+                holder.add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int a=Integer.parseInt(holder.value.getText()+"")+1;
+                        holder.value.setText(a+"");
+                    }
+                });
 
+                holder.min.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int a=Integer.parseInt(holder.value.getText()+"");
+                        if(a>0){
+                            a--;
+                            holder.value.setText(a+"");
+                        }
+
+                    }
+                });
+
+                if(arrayList.get(position).isVeg()){
+                    holder.color.setBackgroundColor(Color.RED);
+                }else{
+                    holder.color.setBackgroundColor(Color.GREEN);
+                }
 
 
             }
@@ -66,7 +89,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     {
         private final TextView nameRes;
         private ImageView imageRes;
-        private TextView price;
+        private TextView value;
         private ImageView color;
         private Button add,min;
 
@@ -74,10 +97,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             super(v);
             this.imageRes = (ImageView)v.findViewById(R.id.img);
             this.nameRes = (TextView)v.findViewById(R.id.name);
-            this.price = (TextView)v.findViewById(R.id.price);
             this.color=(ImageView)v.findViewById(R.id.color);
             this.add=(Button)v.findViewById(R.id.add);
             this.min=(Button)v.findViewById(R.id.min);
+            this.value=(TextView)v.findViewById(R.id.value);
         }
     }
 }

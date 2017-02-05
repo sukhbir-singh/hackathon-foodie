@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -72,6 +73,18 @@ public class CartActivity extends AppCompatActivity {
         }
 
         adapter.refresh(items);
+
+        Button checkout=(Button)findViewById(R.id.checkout);
+
+        checkout.setVisibility(View.VISIBLE);
+
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CartSingleton.reset();
+                finish();
+            }
+        });
 
         return;
 

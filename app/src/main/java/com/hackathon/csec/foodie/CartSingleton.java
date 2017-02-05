@@ -14,12 +14,16 @@ import java.util.ArrayList;
 public class CartSingleton {
 
     private static CartSingleton obj;
-    private ArrayList<Meal> items;
+    private static ArrayList<Meal> items;
     //private ArrayList<String> names;
 
     private CartSingleton(){
         items=new ArrayList<>();
         //names=new ArrayList<>();
+    }
+
+    public static void reset(){
+        obj=new CartSingleton();
     }
 
     public static CartSingleton getInstance(){

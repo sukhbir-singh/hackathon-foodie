@@ -27,4 +27,15 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
+    <Button
+        android:id="@+id/checkout"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:text="CHECKOUT"
+        android:textSize="18sp"
+        android:background="#f5e52b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 </RelativeLayout>
