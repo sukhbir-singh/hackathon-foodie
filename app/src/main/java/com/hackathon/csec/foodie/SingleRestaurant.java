@@ -1,5 +1,6 @@
 package com.hackathon.csec.foodie;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,23 +14,33 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hackathon.csec.foodie.fragments.MenuFragment;
 import com.hackathon.csec.foodie.fragments.MenuFragment2;
 import com.hackathon.csec.foodie.fragments.MenuFragment3;
 
-public class SingleRestaurant extends AppCompatActivity {
+public class SingleRestaurant extends AppCompatActivity implements MenuFragment2.imageUrlListener{
 
     private ImageView img;
     private ViewPager pager;
     private TabLayout tab;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_restaurant);
+        Intent i=getIntent();
+        if(i!=null){
+            if(i.hasExtra(RestaurantsList.RESTAURANT_ID)){
+                id=i.getIntExtra(RestaurantsList.RESTAURANT_ID,-1);
+            }
+        }
 
         tab=(TabLayout)findViewById(R.id.tabs);
         pager=(ViewPager)findViewById(R.id.viewpager);
+        pager.setOffscreenPageLimit(3);
         img=(ImageView)findViewById(R.id.rest_image);
 
         MyPagerAdapter adapter=new MyPagerAdapter(getSupportFragmentManager());
@@ -54,6 +65,11 @@ public class SingleRestaurant extends AppCompatActivity {
 
         tab.setupWithViewPager(pager);
 
+    }
+
+    @Override
+    public void setImageUrl(String url) {
+        Glide.with(this).load(url).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).into(img);
     }
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter{
@@ -83,13 +99,13 @@ public class SingleRestaurant extends AppCompatActivity {
             Fragment fragment=null;
 
             switch (position){
-                case 0: fragment=MenuFragment.getInstance(SingleRestaurant.this);
+                case 0: fragment=MenuFragment.getInstance(SingleRestaurant.this,id);
                     break;
-                case 1: fragment=MenuFragment2.getInstance(SingleRestaurant.this);
+                case 1: fragment=MenuFragment2.getInstance(SingleRestaurant.this,id);
                     break;
                 case 2: fragment= MenuFragment3.getInstance(SingleRestaurant.this);
                     break;
-                default:fragment=MenuFragment.getInstance(SingleRestaurant.this);
+                default:fragment=MenuFragment.getInstance(SingleRestaurant.this,-1);
             }
 
             return fragment;

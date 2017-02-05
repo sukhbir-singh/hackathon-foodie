@@ -9,7 +9,6 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:title="Foodie"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -19,13 +18,25 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:visibility="gone" />
+        android:layout_below="@id/toolbar"
+        android:layout_above="@+id/checkout" />
 
     <ProgressBar
+        android:layout_marginBottom="40dp"
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+
+    <Button
+        android:id="@+id/checkout"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:text="CHECKOUT"
+        android:textSize="18sp"
+        android:background="#f5e52b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </RelativeLayout>

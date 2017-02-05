@@ -29,7 +29,7 @@
          android:text="Hotel Hira Heights"
          android:layout_alignParentLeft="true"
          android:id="@+id/nameRes"
-         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+         android:textSize="20sp"
          android:textColor="@android:color/black"
          />
 
