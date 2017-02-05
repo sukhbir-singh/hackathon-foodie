@@ -14,11 +14,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.hackathon.csec.foodie.fragments.MenuFragment;
 import com.hackathon.csec.foodie.fragments.MenuFragment2;
 import com.hackathon.csec.foodie.fragments.MenuFragment3;
 
-public class SingleRestaurant extends AppCompatActivity {
+public class SingleRestaurant extends AppCompatActivity implements MenuFragment2.imageUrlListener{
 
     private ImageView img;
     private ViewPager pager;
@@ -65,6 +67,11 @@ public class SingleRestaurant extends AppCompatActivity {
 
     }
 
+    @Override
+    public void setImageUrl(String url) {
+        Glide.with(this).load(url).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).into(img);
+    }
+
     private class MyPagerAdapter extends FragmentStatePagerAdapter{
 
         @Override
@@ -94,7 +101,7 @@ public class SingleRestaurant extends AppCompatActivity {
             switch (position){
                 case 0: fragment=MenuFragment.getInstance(SingleRestaurant.this,id);
                     break;
-                case 1: fragment=MenuFragment2.getInstance(SingleRestaurant.this);
+                case 1: fragment=MenuFragment2.getInstance(SingleRestaurant.this,id);
                     break;
                 case 2: fragment= MenuFragment3.getInstance(SingleRestaurant.this);
                     break;
