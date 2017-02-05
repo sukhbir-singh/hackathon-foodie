@@ -8,6 +8,7 @@
 
 
     <ImageView
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView6"
@@ -15,11 +16,7 @@
         android:layout_gravity="center" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-
-
-        >
+        android:layout_height="match_parent">
 
 
         <ImageView
@@ -27,17 +24,20 @@
             android:layout_height="80dp"
             android:id="@+id/imageView5"
             android:src="@drawable/discount"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp" />
+            android:layout_marginBottom="37dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_above="@+id/textView3"
+            android:layout_centerHorizontal="true" />
 
         <TextView
+            android:paddingBottom="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Big Deals Everyday!!"
             android:id="@+id/textView3"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="65dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>

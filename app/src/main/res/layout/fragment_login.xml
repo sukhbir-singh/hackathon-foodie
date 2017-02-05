@@ -20,17 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/loginButton"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="50dp"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:textSize="15dp" />
-
     <ImageView
         android:layout_width="95dp"
         android:layout_height="95dp"
@@ -41,6 +30,7 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -51,4 +41,16 @@
         android:id="@+id/textView5"
         android:layout_below="@+id/imageView8"
         android:layout_centerHorizontal="true" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/loginButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="50dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/skipImage" />
 </RelativeLayout>

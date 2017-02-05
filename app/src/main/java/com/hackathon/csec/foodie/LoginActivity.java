@@ -28,10 +28,12 @@ private ImageView imageView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final SharedPref sharedPref=new SharedPref(this);
-        if(sharedPref.getLoginSkipStatus()){
+
+        if(sharedPref.getLoginSkipStatus()||sharedPref.getLoginStatus()){
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
             finish();
         }
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.content_login);
