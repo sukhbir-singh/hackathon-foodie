@@ -150,8 +150,13 @@ public class LoginFragment extends Fragment {
                     sharedPref.setUserKey(r.userId);
                     sharedPref.setLoginSkipStatus(false);
                     progressBar.setVisibility(View.GONE);
-                    getActivity().startActivity(new Intent(getActivity(),MainActivity.class));
+
+                    Intent in=new Intent(getActivity(),MainActivity.class);
+                    in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                    getActivity().startActivity(in);
                     getActivity().finish();
+
 
                 }
                 else{
