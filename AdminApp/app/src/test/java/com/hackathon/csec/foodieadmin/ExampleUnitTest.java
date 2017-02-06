@@ -1,4 +1,4 @@
-package com.hackathon.csec.foodie;
+package com.hackathon.csec.foodieadmin;
 
 import org.junit.Test;
 
