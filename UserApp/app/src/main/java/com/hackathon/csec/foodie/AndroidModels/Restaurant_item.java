@@ -13,7 +13,7 @@ public class Restaurant_item {
     @SerializedName("picUrl")
     public String photo;
     @SerializedName("rating")
-    public int rating;
+    public double rating;
     @SerializedName("distance")
     public int distance;
     @SerializedName("id")
@@ -37,7 +37,7 @@ public class Restaurant_item {
         this.photo = photo;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 

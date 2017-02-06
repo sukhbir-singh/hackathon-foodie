@@ -61,7 +61,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
                 distance = distance + "away";
 
                 holder.distanceRes.setText(distance);
-                holder.ratingRes.setRating(arrayList.get(position).getRating());
+                holder.ratingRes.setRating((float) arrayList.get(position).getRating());
             }
 
             Glide.with(context).load(arrayList.get(position).getPhoto()).asBitmap().
