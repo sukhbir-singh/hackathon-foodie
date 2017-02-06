@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.contact) {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             String uriText = "mailto:" +
-                    Uri.encode("sukhbir947@gmail.com,sramola5@gmail.com,tarunmahawar25@gmail.com,adityawazir92@gmail.com,")
+                    Uri.encode("sukhbir947@gmail.com,sramola5@gmail.com,tarunmahawar25@gmail.com,adityawazir92@gmail.com")
                     +"?subject=" + Uri.encode("Feedback / Reporting a Bug") + "&body=" +
                     Uri.encode("Hello developers, \nI want to report a bug/give feedback corresponding to this app. \n\n.....\n\n-Your name");
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setTitle(String.format("%1$s", getString(R.string.app_name)));
             builder.setMessage(getResources().getText(R.string.aboutus));
             builder.setPositiveButton("OK", null);
-            builder.setIcon(R.drawable.app_logo);
+            builder.setIcon(R.drawable.app_logo_opt);
             AlertDialog welcomeAlert = builder.create();
             welcomeAlert.show();
 
