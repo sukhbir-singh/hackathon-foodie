@@ -26,11 +26,12 @@ public class SplashActivity extends AppCompatActivity {
         image_splash = (ImageView) findViewById(R.id.image_splash);
         Target<GlideDrawable> into = Glide.with(SplashActivity.this).load(R.drawable.app).into(image_splash);
         Handler handler=new Handler();
+
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
 
-        startActivity(new Intent(SplashActivity.this,appintro.class));
+                startActivity(new Intent(SplashActivity.this,appintro.class));
                 finish();
             }
         },TIME_SPLASH);

@@ -42,6 +42,19 @@ public class UserProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        final SharedPref sharedPref=new SharedPref(this);
+
+        Log.v("skip status2",""+sharedPref.getLoginSkipStatus());
+        Log.v("login status2",""+sharedPref.getLoginStatus());
+
+        if(!sharedPref.getLoginStatus() || sharedPref.getLoginSkipStatus()){
+            Intent i=new Intent(UserProfile.this, LoginActivity.class);
+            i.putExtra("skip_visible",false);
+            startActivity(i);
+            finish();
+        }
+
         setContentView(R.layout.activity_user_profile);
 
         nameUser = (TextView)findViewById(R.id.nameUser);
@@ -71,6 +84,7 @@ public class UserProfile extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         retrofit();
 
     }
@@ -91,6 +105,19 @@ public class UserProfile extends AppCompatActivity {
 
                 bar.setVisibility(View.GONE);
                 r1.setVisibility(View.VISIBLE);
+
+                if(model==null){
+                    finish();
+
+                    LoginManager.getInstance().logOut();
+                    SharedPref s= new SharedPref(UserProfile.this);
+                    s.setLoginStatus(false);
+                    s.setLoginSkipStatus(false);
+                    s.setUserKey(null);
+
+                    return;
+                }
+
                 picUrl=model.getPicUrl();
 
                 if(model.getNameUser()!=null)
@@ -109,10 +136,9 @@ public class UserProfile extends AppCompatActivity {
                 }
 
                 if(picUrl!=null) {
-                    Glide.with(UserProfile.this).load(picUrl).asBitmap().
-                            diskCacheStrategy(DiskCacheStrategy.ALL).into(imageUser);
+                    //temp
+                    Glide.with(UserProfile.this).load(picUrl).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).into(imageUser);
                 }
-
 
                // bar.setVisibility(View.GONE);
 

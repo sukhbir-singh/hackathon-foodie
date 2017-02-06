@@ -24,8 +24,11 @@ public class appintro extends AppIntro {
 
         final SharedPref sharedPref=new SharedPref(this);
 
-        if(sharedPref.getLoginSkipStatus()){
+        if(sharedPref.getLoginStatus()){
             startActivity(new Intent(appintro.this,MainActivity.class));
+            finish();
+        }else if(sharedPref.getLoginSkipStatus()){
+            startActivity(new Intent(appintro.this,LoginActivity.class));
             finish();
         }
 
