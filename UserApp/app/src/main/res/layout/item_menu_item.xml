@@ -10,10 +10,11 @@
     android:layout_height="match_parent">
 
 <ImageView
+    android:scaleType="centerCrop"
     android:src="#7ff279"
     android:id="@+id/img"
     android:layout_width="match_parent"
-    android:layout_height="120dp" />
+    android:layout_height="160dp" />
 
     <LinearLayout
         android:orientation="vertical"
