@@ -11,4 +11,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="aboutus">Foodie is an android application developed during CSEC-NITH Hackathon. \n\nThe aim of the application is to provide a centralised food ordering platform for residents of Hamirpur region, specially NIT Hamirpur students.
+\n\nFeatures of app includes listing all restaurants, distance to restaurant relative to NIT Hamipur, menus for each restaurant, reviews, price and rating for each dish.
+    \n\nDevelopers:--\nSukhbir Singh\nSahil Ramola\nTarun Mahawar\nPalak Sood\nAditya Wazir
+        \n\nThank you for using app..!!
+    </string>
 </resources>

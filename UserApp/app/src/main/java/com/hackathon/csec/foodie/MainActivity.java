@@ -1,11 +1,15 @@
 package com.hackathon.csec.foodie;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.IdRes;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.support.v7.widget.CardView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -124,4 +128,41 @@ public class MainActivity extends AppCompatActivity {
         return items;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main_settings,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.contact) {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            String uriText = "mailto:" +
+                    Uri.encode("sukhbir947@gmail.com,sramola5@gmail.com,tarunmahawar25@gmail.com,adityawazir92@gmail.com,")
+                    +"?subject=" + Uri.encode("Feedback / Reporting a Bug") + "&body=" +
+                    Uri.encode("Hello developers, \nI want to report a bug/give feedback corresponding to this app. \n\n.....\n\n-Your name");
+
+            Uri uri = Uri.parse(uriText);
+            intent.setData(uri);
+            startActivity(Intent.createChooser(intent, "Send Email"));
+
+            return true;
+        }else if(id==R.id.about){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(String.format("%1$s", getString(R.string.app_name)));
+            builder.setMessage(getResources().getText(R.string.aboutus));
+            builder.setPositiveButton("OK", null);
+            builder.setIcon(R.drawable.app_logo);
+            AlertDialog welcomeAlert = builder.create();
+            welcomeAlert.show();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
