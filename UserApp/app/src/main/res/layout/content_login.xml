@@ -8,4 +8,5 @@
         android:layout_height="match_parent"
         android:name="com.hackathon.csec.foodie.LoginFragment"
         android:id="@+id/fragment" />
+
 </LinearLayout>

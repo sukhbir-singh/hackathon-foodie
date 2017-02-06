@@ -2,32 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginback"
     tools:context="com.hackathon.csec.foodie.LoginFragment">
 
     <ImageView
-        android:id="@+id/skipImage"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/cancel" />
-
-    <ProgressBar
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:layout_width="95dp"
-        android:layout_height="95dp"
-        android:id="@+id/imageView8"
-        android:src="@drawable/app_logo"
-        android:layout_marginTop="140dp"
-        android:layout_below="@+id/skipImage"
-        android:layout_centerHorizontal="true" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/loginback"
+        android:id="@+id/backend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <TextView
         android:visibility="gone"
@@ -42,15 +24,58 @@
         android:layout_below="@+id/imageView8"
         android:layout_centerHorizontal="true" />
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/loginButton"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="50dp"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:textSize="15dp"
+    <LinearLayout
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/skipImage" />
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/loginButton"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+            android:textSize="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/textView6"
+            android:layout_toStartOf="@+id/skipImage" />
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="SKIP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/skip"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:id="@+id/imageView8"
+        android:src="@drawable/app_logo"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/progress"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
 </RelativeLayout>
