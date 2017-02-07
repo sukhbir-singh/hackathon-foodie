@@ -39,6 +39,25 @@ public class CartSingleton {
         return items;
     }
 
+    public boolean checkInCart(int id){
+        if(obj==null){
+            obj=new CartSingleton();
+            return false;
+        }
+
+        boolean b=false;
+
+        for(int i=0;i<items.size();i++){
+            if(items.get(i).getId()==id){
+                Log.v("found","in cart");
+                b=true;
+                break;
+            }
+        }
+
+        return b;
+    }
+
     public void addToCart(Meal item){
         if(obj==null){
             obj=new CartSingleton();

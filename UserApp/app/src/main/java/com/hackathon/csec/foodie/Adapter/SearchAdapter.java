@@ -54,10 +54,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
     public void onBindViewHolder(final viewHolder holder, final int position) {
        Meal m= (Meal) list.get(position);
         holder.name.setText(m.getName());
+
+        if(CartSingleton.getInstance().checkInCart(list.get(position).getId())){
+            visiblity.set(position,false);
+            Log.v("1","false");
+        }else{
+            Log.v("2","true");
+            visiblity.set(position,true);
+        }
+
         holder.price.setText(""+m.getPrice());
         Glide.with(context).load(m.getPicUrl()).asBitmap().
                 diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.picMenu);
-       if(m.isVeg()){
+
+        if(m.isVeg()){
            holder.isVeg.setBackgroundColor(Color.RED);
        }
         else{
