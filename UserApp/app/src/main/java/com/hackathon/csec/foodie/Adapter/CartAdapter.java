@@ -3,6 +3,7 @@ package com.hackathon.csec.foodie.Adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -44,6 +46,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         if(arrayList!=null){
             if(arrayList.get(position).getName()!=null){
                 holder.nameRes.setText(arrayList.get(position).getName());
+
+                holder.rate.setText(""+arrayList.get(position).getPrice());
 
                 holder.add.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -92,11 +96,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private TextView value;
         private ImageView color;
         private Button add,min;
+        private TextView rate;
 
         public ViewHolder(View v){
             super(v);
             this.imageRes = (ImageView)v.findViewById(R.id.img);
             this.nameRes = (TextView)v.findViewById(R.id.name);
+            this.rate = (TextView)v.findViewById(R.id.rate_cart);
             this.color=(ImageView)v.findViewById(R.id.color);
             this.add=(Button)v.findViewById(R.id.add);
             this.min=(Button)v.findViewById(R.id.min);

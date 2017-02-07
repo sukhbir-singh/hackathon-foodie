@@ -66,9 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-
             <TextView
-                android:id="@+id/price"
+                android:id="@+id/rate_cart"
                 android:layout_toRightOf="@+id/symbol"
                 android:layout_margin="10dp"
                 android:textSize="20sp"
