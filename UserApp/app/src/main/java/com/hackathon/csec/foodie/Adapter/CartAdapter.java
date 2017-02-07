@@ -48,6 +48,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 holder.nameRes.setText(arrayList.get(position).getName());
 
                 holder.rate.setText(""+arrayList.get(position).getPrice());
+                holder.rest.setText(""+arrayList.get(position).getRestaurantName());
 
                 holder.add.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -97,11 +98,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         private ImageView color;
         private Button add,min;
         private TextView rate;
+        private TextView rest;
 
         public ViewHolder(View v){
             super(v);
             this.imageRes = (ImageView)v.findViewById(R.id.img);
             this.nameRes = (TextView)v.findViewById(R.id.name);
+            this.rest = (TextView)v.findViewById(R.id.rest);
             this.rate = (TextView)v.findViewById(R.id.rate_cart);
             this.color=(ImageView)v.findViewById(R.id.color);
             this.add=(Button)v.findViewById(R.id.add);
