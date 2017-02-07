@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,15 +30,13 @@ import static android.R.id.list;
 
 public class UserProfile extends AppCompatActivity {
 
-    TextView nameUser, emailUser;
-    ProgressBar bar;
-    String picUrl;
-    ImageView imageUser;
-    RelativeLayout r1;
-
-    Button logout;
-
-    String id;
+    private TextView nameUser, emailUser;
+    private ProgressBar bar;
+    private String picUrl;
+    private ImageView imageUser;
+    private LinearLayout r1;
+    private Button logout;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +60,7 @@ public class UserProfile extends AppCompatActivity {
 
         emailUser= (TextView)findViewById(R.id.emailUser);
         bar      = (ProgressBar)findViewById(R.id.progress1);
-        r1       = (RelativeLayout)findViewById(R.id.layout1);
+        r1       = (LinearLayout)findViewById(R.id.layout1);
         imageUser= (ImageView)findViewById(R.id.imageUser);
 
         SharedPref s1 = new SharedPref(UserProfile.this);

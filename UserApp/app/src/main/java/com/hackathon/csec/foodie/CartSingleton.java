@@ -63,10 +63,12 @@ public class CartSingleton {
             obj=new CartSingleton();
         }
 
+        Log.v("adding to cart",""+item.getId());
+
         int flag=0;
 
         for(int i=0;i<items.size();i++){
-             if(items.get(i).getName().equals(item.getName())){
+             if(items.get(i).getId()==item.getId()){
                  flag=1;
                  Log.v("Singleton obj","already in cart");
 

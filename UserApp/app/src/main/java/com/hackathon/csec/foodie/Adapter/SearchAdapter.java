@@ -75,9 +75,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
        }
 
         if(visiblity.get(position)==false){
-            holder.addtocart.setVisibility(View.GONE);
+            holder.addtocart.setEnabled(false);
+
         }else{
+            holder.addtocart.setEnabled(true);
             holder.addtocart.setVisibility(View.VISIBLE);
+
         }
 
         holder.addtocart.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +91,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.viewHolder
 
                 Log.v("added","cart");
 
-                holder.addtocart.setVisibility(View.GONE);
+                holder.addtocart.setEnabled(false);
                 visiblity.set(position,false);
+
             }
         });
 
